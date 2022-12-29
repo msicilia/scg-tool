@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { Button, WorldMap } from 'grommet'
 import Link from 'next/link';
-import { useWorldMapStore } from './store.js'
+import { useWorldMapStore } from '../store.js'
 import countries from './countries.json'
 import useSWR from 'swr'
 import useSWRMutation from 'swr/mutation'

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import model from '../json/model.json';
+import model from './json/model.json';
 
 // create context
 const ModelContext = createContext();

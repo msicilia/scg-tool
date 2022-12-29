@@ -1,5 +1,5 @@
 import create from 'zustand'
-import countries from './countries.json'
+import countries from './pages/countries.json'
 
 //const response = await fetch("/api/countrystats");
 //console.log(response)

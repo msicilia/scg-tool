@@ -5,7 +5,7 @@ import 'survey-core/defaultV2.min.css';
 import { StylesManager } from 'survey-core';
 import {Survey, Model} from 'survey-react-ui'
 import { useContext, useState} from 'react'
-import { ModelContext } from './ModelContext'
+import { ModelContext } from '../ModelContext'
 import Likert from 'react-likert-scale';
 import ReactMarkdown from 'react-markdown'
 

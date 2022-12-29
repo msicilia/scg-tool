@@ -3,7 +3,7 @@ import { grommet, Grommet, Header, Image, Box, Footer } from 'grommet';
 import {Github, Linkedin} from 'grommet-icons';
 import Link from 'next/link';
 import Head from 'next/head';
-import { ModelContextProvider } from './ModelContext'
+import { ModelContextProvider } from '../ModelContext'
 
 function MyApp({ Component, pageProps }) {
 
