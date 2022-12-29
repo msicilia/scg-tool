@@ -22,10 +22,10 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
             <Box align="center" background="light-1">
               <Footer margin="small"> 
-                 <a href="http://github.com">         
+                 <a href="https://github.com/msicilia/scg-tool">         
                      <Github size="medium"></Github>
                </a>
-               <a href="http://linkedin.com">         
+               <a href="https://www.linkedin.com/company/sme-cluster-growth-empowered-engineering/">         
                      <Linkedin size="medium"></Linkedin>
                </a>
       </Footer> 

@@ -7,7 +7,6 @@ import {Survey, Model} from 'survey-react-ui'
 import { useContext, useState} from 'react'
 import { ModelContext } from './ModelContext'
 import Likert from 'react-likert-scale';
-import { motionDefaultProps } from '@nivo/core';
 import ReactMarkdown from 'react-markdown'
 
 
@@ -23,8 +22,6 @@ export default function Tool() {
        if (!model.current_recs)
            model.current_recs = {}
        model.current_recs[dimension.id] = potential_recs.filter(rec =>dimension.score < rec.to)
-       // console.log(potential_recs)
-       // console.log(model.current_recs)
    }
 
    const applyRecommendationsToQuestions = (model, question_id) =>{
@@ -38,7 +35,6 @@ export default function Tool() {
         })
     
   }
-   // const doOnCurrentPageChanged = () => {console.log("PAGE CHANGED")}
    const initialQuestionnaireState = (model) =>{
         // Add the initial response states to the questionnaire.
         model.questionnaire.forEach(dim => {
@@ -78,7 +74,7 @@ export default function Tool() {
       } 
 
    const [model, updateModel] = useState(initialQuestionnaireState(modelContext));
-   console.log(model)
+  
    const data = [
     {
       "dimension": "growth management",
@@ -110,7 +106,6 @@ export default function Tool() {
 
   const [value, setValue] = React.useState(5);
   const onChange = (event) => setValue(event.target.value);
-  
     return <Box align="center">
        <Heading selfAlign="center">Tool</Heading>
        <Tabs>
