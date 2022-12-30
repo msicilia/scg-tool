@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [SME Cluster Growth](https://nextjs.org/) open educational resource (OER) aimed at the self-assessment of the limitations and bottlenecks of SME in their growth. 
 
-## Getting Started
+The dimensions, questions and recommendations are the result of the work in the SME Cluster Growth Erasmus+ project.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Using the OER as is
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can use the OER as is by deploying it to any local or Internet available server. The tool does not provide any sort of authentication, so that an instance deployed as is openly can be used by anybody that have the URL. 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The tool is intended to be used within the process of training or mentoring of SMEs, and not as a long-term database or service. This is why ideally, the OER should be deployed per each training program. However, you can integrate the tool in your Learning Management System (LMS) or other by developing the integration (see below).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Limitations
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The tool does not record the responses to the questionnaire, it only stores in memory as server state the following:
+- Overall counts of questionnaires submitted per country, to give information for the `WorldMapView` component in the front page.
+- Averages of the scores per dimension, to show the averages in the `Radar` component in the results tab. 
 
-## Learn More
+Both elements of shared state are handled in the Next.js `api`. 
 
-To learn more about Next.js, take a look at the following resources:
+The tool does not use any form of database or server-side persistent storage. This is intended so that it can be integrated with your own database. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The OER has been developed using the [Next.js 12](https://nextjs.org/) framework, and can be extended, modified or repurposed with the tools provided by the framework. We have used a permissive open source license to allow for that. 
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can easily deploy the OER as is in Vercel by forking the Github repo to your Github account and associating your fork with your Vercel account. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+

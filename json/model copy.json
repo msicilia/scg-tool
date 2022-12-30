@@ -1,0 +1,50 @@
+{
+    "questionnaire" : [{ "id": "d1", 
+                        "title" : "Universities",
+                        "questions":[
+                                 {"id":"d1q1", "text": "My business has contacts in our local university" , "weight": 10},
+                                 {"id":"d1q2", "text": "My business hosts students on work placement from the university",  "weight": 10},
+                                 {"id":"d1q3", "text": "My business hires graduates from the university",  "weight": 10},
+                                 {"id":"d1q4", "text": "My business knows what the university can offer us",  "weight": 10},
+                                 {"id":"d1q5", "text": "My business accesses training and/or professional development for our staff when we need it",  "weight": 10},
+                                 {"id":"d1q6", "text": "My business works with the university on research projects",  "weight": 10},
+                                 {"id":"d1q7", "text": "My business accesses equipment/facilities in the university",  "weight": 10},
+                                 {"id":"d1q8", "text": "My business knows the funding and supports available if we work with the university",  "weight": 10},
+                                 {"id":"d1q9", "text": "My business provides input to the development of curricula and courses in the university",  "weight": 10},
+                                 {"id":"d1q10", "text": "My business connects  with other SMEs through University forums to access bigger contracts and grow",  "weight": 10}
+
+                                ]
+                        },  
+                       { "id": "d2", 
+                        "title" : "Sustainable growth",
+                        "questions":[
+                                   {"id":"d2q1", "text": "My SME has identified its core competencies" , "weight": 34},
+                                   {"id":"d2q2", "text": "My strategic plan is aligned with the internal capacities of my SME", "weight": 33},
+                                   {"id":"d2q3", "text": "My strategic plan is aligned with the business environment of my company",  "weight": 33}
+                                ]
+                                }
+                    ],
+    "recommendations" : {"d1": [{"id":"1", "text": "Having a contact in your local university is crucial to start engaging. Build contacts with university staff to start engaging and accessing the support available so you can grow.", "url": "", "from":0, "to":1, "sectors":[]},  
+                                 {"id":"2","text": "Accessing students on placement will give you the benefit of exciting new talent at a very low cost, and graduates will have your businesses in mind when they start looking for their first job.  Propose role specifications for student placement(s), and consider a range of courses, i.e. engineering, HR, marketing, sales etc. ", "from":0, "to":2, "sectors":[]}, 
+                                 {"id":"3","text": "Hiring graduates from university allows you access to young talent used to learning and adapting to innovation. Contact the university to access careers days, websites or forums where graduates find employers and get your business noticed. ", "to": 2},
+                                 {"id":"4","text": "**Universities** have a wide range of support, services, equipment, and training available to help your business grow but you need to know what's available first. Get in contact with a university to ask what they can do for you.  ", "to": 2},
+                                 {"id":"5","text": "**Universities** often offer flexible professional development and staff training to help build your existing team skills, including management. Contact the university and ask about training for your staff. Inform your staff of the training available to them and the benefits to them and the business by doing it.  ", "to": 4},
+                                 {"id":"6","text": "Working with university researchers means you'll have the latest studies and innovations at your fingertips, ahead of your competition. Research can range from developing technologies and new products and services to providing students with fixed-term projects addressing business challenges such as new product introduction and international expansion. Contact a university and let them know you're interested in research and innovation, however small or large and want to be involved going forward. Identify an employee with an interest in research and suggest they work with a university to develop your business research potential.   ", "to": 4},
+                                 {"id":"7","text": "Whether it's laboratory time, high-tech IT equipment or simply space to hold meetings, many universities will lend you theirs for a small fee or no charge. Contact a university to see what they have on offer for your business. Share a list of the facilities/equipment available and inform your staff of the opportunities available for future use.   ", "to": 4},
+                                 {"id":"8","text": "There are many funding streams available to encourage small businesses to collaborate with universities. This often includes funding to support research interactions as well as funding for training and development. Contact a university to see what kind of funding is available to businesses like yours. Contact your local enterprise support office also to see what other funding is available to work with public research bodies. ", "to": 4},
+                                 {"id":"9","text": "Once you've started working with a university you can help to design courses and assessments that meet the needs of businesses like yours. Use your contacts with a university to inform course designers of new training needs or changes to your sector that students need to know. ", "to": 5},
+                                 {"id":"10","text": "Running an SME can be stressful and isolating. Universities can bring your business together with other like-minded entrepreneurs, providing support and assistance and helping to build new working relationships. Many universities host local economic growth hubs or business incubators to help small organisations and start-ups get off the ground. Contact a university about collaboration, networks or clusters in your area to start your journey. ", "to": 4}
+                                ],
+                         "d2":[ {"id":"1","text": "Integrate the result of the analysis to elaborate the strategic plan", "to": 4},
+                                {"id":"2","text": "Do a cultural analysis to understand why your team doesn’t buy the strategic plan", "to": 4},
+                                {"id":"2","text": "Develop your network and construct your business thoughts.", "to": 4}
+
+                        ], 
+                         "d3":[]},
+
+    "recommendations-questions" : {"d1q1": [
+                         {"text": "It’s hard to grow in a sustainable way when the company hasn’t identified its internal assets and its real core competencies", "url": "", "from":1, "to":2, "sectors":[]},  
+                         {"text": "recommendation ...", "to":3, "sectors":[]}, {}],
+                 "q2":[], "d3":[]}
+
+}

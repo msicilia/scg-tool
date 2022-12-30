@@ -1,15 +1,13 @@
 
-
+import countries from '../../json/countries.json'
 
 // in-memory state for the API (warning: no persistence)
 let stats = {
-       countries: [{name: "Total", count: 0},
-                   {name: "Spain", count: 0}, {name: "France", count: 0}]
+       countries: countries
 }
 
 export default function handler(req, res) {
   const { method } = req;
-
   // just return the complete stats.
   if (method === "GET") {
     return res.status(200).json(stats);
@@ -20,6 +18,7 @@ export default function handler(req, res) {
   if (method === "POST") {
     const body = JSON.parse(req.body)
     const { location } = body;
+    // increment the count for the given location (country) and update total.
     stats.countries = stats.countries.map(
             (loc)=> loc.name === location || loc.name === "Total"
                ?  {...loc, count:loc.count + 1}
