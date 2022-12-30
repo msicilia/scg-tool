@@ -1,12 +1,1 @@
-[
-    {"name": "Spain",
-     "lat": 40.2085, "lon": -3.7130, "count":0},
-     {"name": "France",
-     "lat": 46.7111, "lon": 1.7191, "count":0},
-     {"name": "Belgium",
-     "lat": 50.503887, "lon": 4.469936, "count":0},
-     {"name": "Italy",
-     "lat": 41.2925, "lon": 12.5736, "count":0},
-     {"name": "Turkey",
-     "lat": 41.015137, "lon": 28.979530, "count":0}
-]
+[{"name":"Total","count":11},{"name":"Spain","lat":40.2085,"lon":-3.713,"count":7},{"name":"France","lat":46.7111,"lon":1.7191,"count":2},{"name":"Belgium","lat":50.503887,"lon":4.469936,"count":0},{"name":"Italy","lat":41.2925,"lon":12.5736,"count":1},{"name":"Turkey","lat":41.015137,"lon":28.97953,"count":1}]

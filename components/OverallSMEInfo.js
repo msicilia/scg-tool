@@ -12,7 +12,7 @@ export default function OverallSMEInfo() {
   return   <Box pad="medium">   
                 <Text>Country </Text>    
                 <Select
-                    options={countries.map((c)=>c.name)}
+                    options={countries.filter(c=>c.name!=="Total").map((c)=>c.name)}
                     value={country}
                     onChange={({ option }) => updateCountry(option)}
                 />

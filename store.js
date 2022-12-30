@@ -2,10 +2,9 @@ import create from 'zustand'
 import countries from './json/countries.json'
 import model from './json/model.json';
 
-
 export const useWorldMapStore = create((set, get) => ({
-    numberSMEs: [...countries, {"name" : "Total"}, {"name" : "Other"}].map(c=>({...c, count: 0})),
-    currentLoc: "Total",
+    numberSMEs: [...countries],
+    currentLoc: "Spain",
     getCount: location => get().numberSMEs.filter((loc) =>loc.name == location)[0].count,
     selectLocation: location => set((state) => ({ currentLoc: location })),
     incrementUses:  location => {
@@ -19,7 +18,7 @@ export const useWorldMapStore = create((set, get) => ({
 // Add here state for the overall description of the SME.
 // At least country is required to maintain the stats per country.
 export const useOverallSMEInfoStore = create((set, get) => ({
-    country: countries[0].name,
+    country: countries[1].name,
     countries: countries,
     updateCountry: (newCountry) => set((state) => ({country: newCountry })),
 }))
