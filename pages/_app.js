@@ -3,12 +3,10 @@ import { grommet, Grommet, Header, Image, Box, Footer } from 'grommet';
 import {Github, Linkedin} from 'grommet-icons';
 import Link from 'next/link';
 import Head from 'next/head';
-import { ModelContextProvider } from '../ModelContext'
 
 function MyApp({ Component, pageProps }) {
 
-  return <ModelContextProvider>
-          <Grommet theme={grommet}>
+  return <Grommet theme={grommet}>
               <Head>
                  <title>SME Cluster Growth Self assessment</title>
               </Head>
@@ -31,7 +29,6 @@ function MyApp({ Component, pageProps }) {
       </Footer> 
     </Box>
     </Grommet>
-    </ModelContextProvider> 
 }
 
 export default MyApp

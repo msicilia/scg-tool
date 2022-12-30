@@ -13,11 +13,6 @@ import dimensions from '../json/dimensions.json'
 
 
 export default function Tool() {
-// StylesManager.applyTheme("defaultV2");
-
-   // modelContext contains the static definition of dimensions, questions and recommendations.
-   // we used it as the global state of the tool, with all the collected and computed information kept up to date in it.  
-   //const modelContext = useContext(ModelContext);
     return <Box align="center">
        <Tabs>
        <Tab title="SME description">
