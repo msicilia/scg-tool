@@ -1,14 +1,11 @@
 
 import dimensions from '../../json/dimensions.json'
+import { addToAverage } from '../../util';
+import fs from 'fs';
 
-// in-memory state for the API (warning: no persistence)
+// in-memory state for the API 
 let stats = {
        dimensions: dimensions.map(d =>({...d, average: 75, count: 0}))
-}
-
-function addToAverage( average, size, value)
-{
-    return (size * average + value) / (size + 1);
 }
 
 export default function handler(req, res) {
@@ -23,7 +20,15 @@ export default function handler(req, res) {
     const submission = JSON.parse(req.body)
     stats.dimensions = stats.dimensions.map(d =>({...d, 
                                                   count: d.count + 1, 
-                                                  average: addToAverage(d.average, d.count + 1 , submission.filter(s=>s.id===d.id)[0].score)}))
+                                                  average: addToAverage(d.average, 
+                                                                        d.count + 1 , 
+                                                                        submission.filter(s=>s.id===d.id)[0].score)}))
+   fs.writeFile("./json/dimensions.json", JSON.stringify(stats.dimensions), 
+    function(err) {
+      if (err) {
+          console.log(err);
+      }
+    });
     return res.status(200).json([])
   }
 }

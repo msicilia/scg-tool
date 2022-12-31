@@ -1,6 +1,6 @@
 
 import countries from '../../json/countries.json'
-var fs = require('fs');
+import fs from 'fs';
 
 // in-memory state for the API (warning: no persistence)
 let stats = {

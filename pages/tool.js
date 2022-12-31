@@ -8,21 +8,21 @@ import dimensions from '../json/dimensions.json'
 
 export default function Tool() {
     return <Box align="center">
-       <Tabs>
-       <Tab title="SME description">
-            <OverallSMEInfo/>
-       </Tab>
-       {dimensions.map((d) =>
-                <Tab key={d.id} title={d.name}>
-                  <QuestionSet dimension={d.id}/>
-                </Tab>
-        )}
-        <Tab title="Results">
-            <Results/>
-        </Tab>
-        <Tab title="Recommendations" >
-            <Recommendations/>
-        </Tab>
-    </Tabs>
+              <Tabs>
+                  <Tab title="SME description">
+                        <OverallSMEInfo/>
+                  </Tab>
+                  {dimensions.map((d) =>
+                        <Tab key={d.id} title={d.name}>
+                          <QuestionSet dimension={d.id}/>
+                        </Tab>
+                    )}
+                    <Tab title="Results">
+                        <Results/>
+                    </Tab>
+                    <Tab title="Recommendations" >
+                        <Recommendations/>
+                    </Tab>
+            </Tabs>
     </Box>;
   }

@@ -1,7 +1,1 @@
-[
- {"id": "d1", "name": "Universities"}, 
- {"id": "d2", "name": "Sustainable growth"},
- {"id": "d3", "name": "Go International"},
- {"id": "d4", "name": "Financing"}, 
- {"id": "d5", "name": "Ecosystem"}  
-]
+[{"id":"d1","name":"Universities","average":62.5,"count":1},{"id":"d2","name":"Sustainable growth","average":62.5,"count":1},{"id":"d3","name":"Go International","average":62.5,"count":1},{"id":"d4","name":"Financing","average":62.5,"count":1},{"id":"d5","name":"Ecosystem","average":62.5,"count":1}]

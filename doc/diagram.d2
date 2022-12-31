@@ -1,0 +1,50 @@
+store: {
+    WorldMapStore: {
+      shape: class
+      currentLoc: "str"
+      numberSMEs: "obj[]"
+      getCount(location)
+      selectLocation(location)
+      incrementUses(location)
+    }
+  
+    QuestionnaireStore: {
+      shape: class
+      questionnaire: "obj[]"
+      dimensionRecommendations: "obj[]"
+      questionRecommendations: "obj[]"
+      updateAnswer(dimension, question, value)
+    }
+  
+    OverallSMEInfoStore: {
+      shape: class
+      country: "str"
+      countries: "obj[]"
+      updateCountry(country)
+    }
+  }
+  
+  /api: {
+    /countrystats
+    /dimensionstats
+  }
+  
+  index -> tool
+  tool -> QuestionSet
+  tool -> Recommendations
+  tool -> OverallSMEInfo
+  tool -> Results
+  
+  direction: right
+  Results -> /api./dimensionstats: POST
+  Results -> /api./countrystats: POST
+  
+  index -> store.WorldMapStore
+  QuestionSet -> store.QuestionnaireStore
+  Recommendations -> store.QuestionnaireStore
+  OverallSMEInfo -> store.OverallSMEInfoStore
+  Results -> store.QuestionnaireStore
+  Results -> store.OverallSMEInfoStore
+  Results -> store.WorldMapStore
+  Results -> store.WorldMapStore
+  

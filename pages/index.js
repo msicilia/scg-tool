@@ -4,14 +4,8 @@ import { WorldMap } from 'grommet'
 import Link from 'next/link';
 import { useWorldMapStore } from '../store.js'
 import countries from '../json/countries.json'
-import useSWR from 'swr'
-
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 
 export default function Home(props) {
-  const { data, error } = useSWR('/api/countrystats', fetcher)
 
   const {getCount, currentLoc, selectLocation} = 
           useWorldMapStore((state) => ({getCount:state.getCount,

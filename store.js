@@ -1,6 +1,7 @@
 import create from 'zustand'
 import countries from './json/countries.json'
 import model from './json/model.json';
+import { scaleValue } from './util.js'
 
 export const useWorldMapStore = create((set, get) => ({
     numberSMEs: [...countries],
@@ -23,12 +24,7 @@ export const useOverallSMEInfoStore = create((set, get) => ({
     updateCountry: (newCountry) => set((state) => ({country: newCountry })),
 }))
 
-// Questions are in the [1, 5] integer interval, but the Radar widget uses the scale [0,100]
-export function scaleValue(value, from, to) {
-	var scale = (to[1] - to[0]) / (from[1] - from[0]);
-	var capped = Math.min(from[1], Math.max(from[0], value)) - from[0];
-	return Math.floor(capped * scale + to[0]);
-}
+
 
 // The store of the responses of the questionnaire and associated recommendations.
 export const useQuestionnaireStore = create((set, get) => ({

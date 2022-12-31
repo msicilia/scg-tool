@@ -2,7 +2,8 @@ import {Box, Button } from 'grommet';
 import { Radar } from '@nivo/radar'
 import { useEffect, useState} from "react";
 import dimensions from '../json/dimensions.json'
-import { useQuestionnaireStore, useOverallSMEInfoStore, scaleValue, useWorldMapStore } from '../store.js'
+import { useQuestionnaireStore, useOverallSMEInfoStore, useWorldMapStore } from '../store.js'
+import { scaleValue } from '../util.js'
 
 /**
  * The results of the SME assessment, based on the questionnaire answers. 
@@ -10,13 +11,15 @@ import { useQuestionnaireStore, useOverallSMEInfoStore, scaleValue, useWorldMapS
 
 export default function Results() {
 
-  // variable to force refetching of overall stats.
+  // state to force refetching of overall stats.
   const [reloadAverages, changeReloadAverages ] = useState(true)
+  const refetch = () =>{
+    changeReloadAverages(!reloadAverages)
+  }
 
   const country = useOverallSMEInfoStore(
     (state) => state.country,
   )
-
   const incrementUses = useWorldMapStore(
     (state) => state.incrementUses,
   )
@@ -26,33 +29,27 @@ export default function Results() {
   const setDimensionStats = useQuestionnaireStore(
       (state) => state.setDimensionStats,
   )
-
   const getDimensionScore = useQuestionnaireStore(
     (state) => state.getDimensionScore,
 )
-  
-  useEffect(() => {
-    fetch("/api/dimensionstats")
-      .then((response) => response.json())
-      .then((data) => {
-        setDimensionStats(data.dimensions);
-      });
-  }, [reloadAverages]);
 
-  const refetch = () =>{
-    changeReloadAverages(!reloadAverages)
-  }
+// Load the averages of the dimensions. 
+useEffect(() => {
+  fetch("/api/dimensionstats")
+    .then((response) => response.json())
+    .then((data) => {
+      setDimensionStats(data.dimensions);
+    });
+}, [reloadAverages]);
 
 
-
+// Save stats for the averages of the dimensions and the counting of countries.
  const submit =  async () =>{
       const scores = dimensions.map((d)=>({...d, score : scaleValue(getDimensionScore(d.id), [1,5], [0,100])}))
-      console.log(scores)
       await fetch("/api/dimensionstats", {
         method: 'POST',
         body: JSON.stringify(scores)
       })
-      console.log(country)
       await fetch("/api/countrystats", {
         method: 'POST',
         body: JSON.stringify({location: country })
@@ -91,7 +88,8 @@ export default function Results() {
             ]}
           />
           <Box direction="row">
-              <Button primary label="submit" onClick={submit}/><Button primary label="Refresh" onClick={refetch}/>
+              <Button primary label="submit" onClick={submit}/>
+              <Button primary label="Refresh" onClick={refetch}/>
           </Box>
         </Box>
 
