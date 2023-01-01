@@ -1,1 +1,48 @@
-[{"name":"Total","count":17},{"name":"Spain","lat":40.2085,"lon":-3.713,"count":13},{"name":"France","lat":46.7111,"lon":1.7191,"count":2},{"name":"Belgium","lat":50.503887,"lon":4.469936,"count":0},{"name":"Italy","lat":41.2925,"lon":12.5736,"count":1},{"name":"Turkey","lat":41.015137,"lon":28.97953,"count":1},{"name":"Finland","lat":61.9241,"lon":25.7482,"count":0},{"name":"Ireland","lat":53.1424,"lon":-6.266155,"count":0}]
+[
+    {
+        "name": "Total",
+        "count": 0
+    },
+    {
+        "name": "Spain",
+        "lat": 40.2085,
+        "lon": -3.713,
+        "count": 0
+    },
+    {
+        "name": "France",
+        "lat": 46.7111,
+        "lon": 1.7191,
+        "count": 6
+    },
+    {
+        "name": "Belgium",
+        "lat": 50.503887,
+        "lon": 4.469936,
+        "count": 0
+    },
+    {
+        "name": "Italy",
+        "lat": 41.2925,
+        "lon": 12.5736,
+        "count": 0
+    },
+    {
+        "name": "Turkey",
+        "lat": 41.015137,
+        "lon": 28.97953,
+        "count": 0
+    },
+    {
+        "name": "Finland",
+        "lat": 61.9241,
+        "lon": 25.7482,
+        "count": 0
+    },
+    {
+        "name": "Ireland",
+        "lat": 53.1424,
+        "lon": -6.266155,
+        "count": 6
+    }
+]

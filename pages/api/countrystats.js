@@ -11,9 +11,7 @@ export default function handler(req, res) {
   const { method } = req;
   // just return the complete stats.
   if (method === "GET") {
-    //let rawdata = fs.readFileSync('../../json/countries.json');
-    //countries = JSON.parse(rawdata);
-    return res.status(200).json(countries);
+    return res.status(200).json(stats.countries);
   }
 
   // requires an object with a location property that must be one of the
@@ -21,11 +19,14 @@ export default function handler(req, res) {
   if (method === "POST") {
     const body = JSON.parse(req.body)
     const { location } = body;
+    console.log(location)
+    
     // increment the count for the given location (country) and update total.
     stats.countries = stats.countries.map(
             (loc)=> loc.name === location || loc.name === "Total"
                ?  {...loc, count:loc.count + 1}
                : loc  );
+    console.log(stats.countries)
     fs.writeFile("./json/countries.json", JSON.stringify(stats.countries), function(err) {
                 if (err) {
                     console.log(err);

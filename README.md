@@ -1,9 +1,9 @@
 
 # SME Cluster Growth assessment tool
-
-<img src="public/mitlicense.png" width="50">
-<img src="public/oer.jpeg" width="75">
-
+<p float="left">
+<img src="public/mitlicense.png" width="67">
+<img src="public/oer.jpeg" width="100">
+</p>
 This is a [SME Cluster Growth](https://nextjs.org/) **open educational resource (OER)** aimed at the self-assessment of the limitations and bottlenecks of SME in their growth. 
 
 The dimensions, questions and recommendations are the result of the work in the SME Cluster Growth Erasmus+ project.
@@ -32,4 +32,22 @@ The OER has been developed using the [Next.js 12](https://nextjs.org/) framework
 
 You can easily deploy the OER as is in Vercel by forking the Github repo to your Github account and associating your fork with your Vercel account. 
 
+## Self hosting
+
+The tool can be deployed at any hosting. Doing so requires having [node.js](https://nodejs.org/) installed (the tool was tested with v12.22.9). 
+
+Just clone the repo and execute inside the main folder.
+
+```
+npm install
+```
+Then you can build the app with:
+```
+npm run build
+```
+
+And finally you can start the server with:
+```
+npm run start
+```
 

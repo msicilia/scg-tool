@@ -12,10 +12,11 @@ import { scaleValue } from '../util.js'
 export default function Results() {
 
   // state to force refetching of overall stats.
-  const [reloadAverages, changeReloadAverages ] = useState(true)
-  const refetch = () =>{
-    changeReloadAverages(!reloadAverages)
-  }
+  //const [reloadAverages, changeReloadAverages ] = useState(true)
+  //const refetch = () =>{
+  //  console.log("refetch")
+  //  changeReloadAverages(!reloadAverages)
+  //}
 
   const country = useOverallSMEInfoStore(
     (state) => state.country,
@@ -23,44 +24,47 @@ export default function Results() {
   const incrementUses = useWorldMapStore(
     (state) => state.incrementUses,
   )
-  const data = useQuestionnaireStore(
+  const dimensionStats = useQuestionnaireStore(
     (state) => state.dimensionStats,
   )
   const setDimensionStats = useQuestionnaireStore(
       (state) => state.setDimensionStats,
   )
-  const getDimensionScore = useQuestionnaireStore(
-    (state) => state.getDimensionScore,
-)
+
 
 // Load the averages of the dimensions. 
 useEffect(() => {
+  console.log("fetching")
   fetch("/api/dimensionstats")
     .then((response) => response.json())
     .then((data) => {
-      setDimensionStats(data.dimensions);
+      console.log(data)
+      setDimensionStats(data);
     });
-}, [reloadAverages]);
+}, []);
 
 
 // Save stats for the averages of the dimensions and the counting of countries.
  const submit =  async () =>{
-      const scores = dimensions.map((d)=>({...d, score : scaleValue(getDimensionScore(d.id), [1,5], [0,100])}))
+      const scores = dimensionStats // .map((d)=>({...d, score : scaleValue(getDimensionScore(d.id), [1,5], [0,100])}))
+      const currentCountry = country
+      incrementUses(country)
+      await fetch("/api/countrystats", {
+        method: 'POST',
+        body: JSON.stringify({location: currentCountry })
+      })
+      
+      console.log(scores)
       await fetch("/api/dimensionstats", {
         method: 'POST',
         body: JSON.stringify(scores)
       })
-      await fetch("/api/countrystats", {
-        method: 'POST',
-        body: JSON.stringify({location: country })
-      })
-      incrementUses(country)
   }
 
   return <Box height="900" width="1000" fill={true} align="center">
           <Radar
             height={500} width={600}
-            data={data}
+            data={dimensionStats}
             keys={[ 'score', 'average' ]}
             indexBy="name"
             valueFormat=">-.2f" maxValue={100}
@@ -89,7 +93,6 @@ useEffect(() => {
           />
           <Box direction="row">
               <Button primary label="submit" onClick={submit}/>
-              <Button primary label="Refresh" onClick={refetch}/>
           </Box>
         </Box>
 

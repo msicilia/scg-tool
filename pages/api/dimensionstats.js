@@ -5,14 +5,14 @@ import fs from 'fs';
 
 // in-memory state for the API 
 let stats = {
-       dimensions: dimensions.map(d =>({...d, average: 75, count: 0}))
+       dimensions: dimensions
 }
 
 export default function handler(req, res) {
   const { method } = req;
   // just return the complete stats.
   if (method === "GET") {
-    return res.status(200).json(stats);
+    return res.status(200).json(stats.dimensions);
   }
 
   // requires an object that contains all the scores per each dimension of the submission.
