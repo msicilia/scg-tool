@@ -1,5 +1,7 @@
 import create from 'zustand'
 import countries from './json/countries.json'
+import dimensions from './json/dimensions.json'
+
 import model from './json/model.json';
 import { persist } from 'zustand/middleware'
 import { scaleValue } from './util.js'
@@ -37,31 +39,40 @@ export const useOverallSMEInfoStore = create(
 export const useQuestionnaireStore = create(
   persist(
     (set, get) => ({
+
+        //isInInitialState : true,
+
         questionnaire: model.questionnaire.map(q => ({ ...q, value : 3})), // add default question value
 
         // initially, no recommendations apply.
         dimensionRecommendations: model.dimension_recommendations.map(r => ({ ...r, applicable : false})),
         questionRecommendations: model.question_recommendations.map(r => ({ ...r, applicable : false})),
-        
+
         // Results, averages to be fetched, and the ones for the current SME computed.
         dimensionStats: [],
 
+
         // check the just question just changed has some applicable recommendations
         updateQuestionRecommendations: (questionId, newValue) => {
-              set((state) => ({questionRecommendations: state.questionRecommendations.map(
-                                                      r => r.question===questionId 
-                                                      ? newValue >= r.from && newValue <=r.to? {...r, applicable : true} : {...r, applicable : false}
-                                                      : r )}))
+              set((state) => ({questionRecommendations://[...new Map(
+                                                      state.questionRecommendations.map(
+                                                      r => r.question===questionId ?
+                                                          newValue >= r.from && newValue <=r.to? {...r, applicable : true} : {...r, applicable : false}
+                                                      : r )
+                                                      //.map(x=>[x.text, x])).values()]} // convert to Map to remove duplicate objects
+        })) 
         },
 
         // check the dimension of the question changed has some applicable recommendations
         updateDimensionRecommendations: (dimensionId) => {
             const newScore = get().getDimensionScore(dimensionId)
-            set((state) => ({dimensionRecommendations : state.dimensionRecommendations.map(
-                                                          r => r.dimension===dimensionId 
-                                                                ? newScore >= r.from && newScore <=r.to? {...r, applicable : true} : {...r, applicable : false}
-                                                                : r )})
-            )
+            set((state) => ({dimensionRecommendations : //[...new Map(
+              state.dimensionRecommendations.map(
+                                                          r => r.dimension===dimensionId ?
+                                                                 newScore >= r.from && newScore <=r.to? {...r, applicable : true} : {...r, applicable : false}
+                                                          : r )
+                                                          //.map(x=>[x.text, x])).values()]})
+                                                        }))
         },
 
         getQuestions: (dimension) => get().questionnaire.filter(q => q.dimension===dimension),
@@ -76,12 +87,17 @@ export const useQuestionnaireStore = create(
                                               : q)}))
                       get().updateQuestionRecommendations(questionId, newValue)
                       get().updateDimensionRecommendations(dimensionId)
-
                 },
           setDimensionStats : (fetchedDimensions) => {
                   set((state)=> ({dimensionStats: fetchedDimensions.map(d=>({...d, 
                                                                             score: scaleValue(get().getDimensionScore(d.id), [1,5], [0,100])}))}))
                 },
+
+        initializeRecommendations : () => {
+              console.log("initialRecommendations")
+              dimensions.forEach((d) =>{get().updateDimensionRecommendations(d.id)})
+              model.questionnaire.forEach((q) =>{get().updateQuestionRecommendations(q.id, get().questionnaire.filter((qs)=>qs.id===q.id)[0].value)})
+        }
 
 }), 
 {

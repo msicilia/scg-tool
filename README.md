@@ -4,7 +4,7 @@
 <img src="public/mitlicense.png" width="67">
 <img src="public/oer.jpeg" width="100">
 </p>
-This is a [SME Cluster Growth](https://nextjs.org/) **open educational resource (OER)** aimed at the self-assessment of the limitations and bottlenecks of SME in their growth. 
+This is a [SME Cluster Growth](https://nextjs.org/) open educational resource (OER) aimed at the self-assessment of the limitations and bottlenecks of SME in their growth. 
 
 The dimensions, questions and recommendations are the result of the work in the SME Cluster Growth Erasmus+ project.
 

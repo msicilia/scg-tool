@@ -61,25 +61,25 @@ useEffect(() => {
       })
   }
 
-  return <Box height="900" width="1000" fill={true} align="center">
-          <Radar
-            height={500} width={600}
+  return <Box height="800" width="800" fill={true} align="center">
+          <Radar theme={{fontSize : 14}}
+            height={420} width={600}
             data={dimensionStats}
             keys={[ 'score', 'average' ]}
             indexBy="name"
-            valueFormat=">-.2f" maxValue={100}
-            margin={{ top: 70, right: 150, bottom: 40, left: 150}}
+            valueFormat=">-.1f" maxValue={100}
+            margin={{ top: 20, right: 150, bottom: 20, left: 150}}
             borderColor={{ from: 'color' }}
-            gridLabelOffset={36}
+            gridLabelOffset={15}
             dotSize={10} dotColor={{ theme: 'background' }} dotBorderWidth={3}
             colors={{ scheme: 'nivo' }}
             blendMode="multiply" motionConfig="wobbly"
             legends={[
                 {
-                    anchor: 'bottom', direction: 'row',
-                    translateX: -100, translateY: -120,
+                    anchor: 'bottom-left', direction: 'column',
+                    translateX: -150, translateY: -300,
                     itemWidth: 80, itemHeight: 20, itemTextColor: '#999',
-                    symbolSize: 12, symbolShape: 'circle',
+                    symbolSize: 14, symbolShape: 'circle',
                     effects: [
                         {
                             on: 'hover',
@@ -91,8 +91,8 @@ useEffect(() => {
                 }
             ]}
           />
-          <Box direction="row">
-              <Button primary label="submit" onClick={submit}/>
+          <Box direction="row" pad="large">
+              <Button primary label="submit" onClick={submit} tip={{content: "Submit the current answer for stats"}}/>
           </Box>
         </Box>
 

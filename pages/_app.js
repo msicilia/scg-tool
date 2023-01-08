@@ -10,15 +10,15 @@ function MyApp({ Component, pageProps }) {
               <Head>
                  <title>SME Cluster Growth Self assessment</title>
               </Head>
-                <Header background="light-1" margin="small">
+                <Header background="light-0" margin="medium">
                   <Box width="xsmall" xheight="small" >
                   <Link href="/">
-                    <Image  src="/cropped-sme-growth-cluster-FINAL-LOGO.png"></Image>
+                    <Image src="/cropped-sme-growth-cluster-FINAL-LOGO.png" alt=""></Image>
                   </Link>
                   </Box>
                 </Header>
-            <Component {...pageProps} />
-            <Box align="center" background="light-1">
+            <Box flex> <Component {...pageProps} /> </Box>
+            <Box align="center" background="light-1" margin="large">
               <Footer margin="small"> 
                  <a href="https://github.com/msicilia/scg-tool">         
                      <Github size="medium"></Github>

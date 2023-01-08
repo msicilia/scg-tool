@@ -9,7 +9,7 @@ export default function OverallSMEInfo() {
    const [country, countries, updateCountry] = useOverallSMEInfoStore(
       (state) => [state.country, state.countries, state.updateCountry],
     )
-  return   <Box pad="medium">   
+  return   <Box margin="xlarge">   
                 <Text>Country </Text>    
                 <Select
                     options={countries.filter(c=>c.name!=="Total").map((c)=>c.name)}

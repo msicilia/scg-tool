@@ -15,13 +15,15 @@ export default function Recommendations() {
               {dimensions.map( dimension =>{
                   return <AccordionPanel label={dimension.name} key={dimension.id}>
                                  {questionRecommendations.filter(r => r.dimension===dimension.id && r.applicable)
+                                                      .filter((elem, index, col) => col.findIndex((t)=>t.text===elem.text)===index)
                                                       .map(r => { return <Box pad="medium" background="light-2" 
                                                                           key={r.id} width="xlarge" gap="small">
                                                                               <ReactMarkdown>{r.text}</ReactMarkdown>
                                                                          </Box>
                                                       })}
                                  {dimensionRecommendations.filter(r => r.dimension===dimension.id && r.applicable)
-                                                      .map(r => { return <Box pad="medium" background="light-2" 
+                                                          // .filter((elem, index, col) => col.findIndex((t)=>t.text===elem.text)===index)
+                                                          .map(r => { return <Box pad="medium" background="light-2" 
                                                                           key={r.id} width="xlarge" gap="small">
                                                                               <ReactMarkdown>{r.text}</ReactMarkdown>
                                                                           </Box>

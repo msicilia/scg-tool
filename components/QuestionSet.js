@@ -1,6 +1,7 @@
 
 import Likert from 'react-likert-scale';
 import { useQuestionnaireStore } from '../store.js'
+import { Box } from 'grommet';
 
 /**
  * Set of questions for a dimension. 
@@ -12,6 +13,7 @@ export default function QuestionSet({dimension}) {
     )
     return  questionnaire.filter(q => q.dimension===dimension)
                           .map(q =>
+                                <Box pad="medium" flex key={q.id} >
                                 <Likert question={q.text}  layout="stacked" key={q.id} 
                                 onChange={selected => updateAnswer(q.dimension, q.id, selected.value)}
                                 responses ={[
@@ -21,7 +23,7 @@ export default function QuestionSet({dimension}) {
                                         { value: 4, text: "", checked: q.value === 4, id: q.id , dimid: dimension },
                                         { value: 5, text: "Completely Agree", checked: q.value === 5, id: q.id , dimid: dimension}  ] } 
                                 >
-                              </Likert>
+                              </Likert></Box>
             )
   }
   
