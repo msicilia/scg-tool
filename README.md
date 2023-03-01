@@ -1,10 +1,11 @@
 
 # SME Cluster Growth assessment tool
 <p float="left">
-<img src="public/mitlicense.png" width="67">
-<img src="public/oer.jpeg" width="100">
+<img src="public/mitlicense.png" width="67"/>
+<img src="public/oer.jpeg" width="100"/>
 </p>
-This is a [SME Cluster Growth](https://nextjs.org/) open educational resource (OER) aimed at the self-assessment of the limitations and bottlenecks of SME in their growth. 
+
+This is a [SME Cluster Growth](https://smeclustergrowth.eu/) open educational resource (OER) aimed at the self-assessment of the limitations and bottlenecks of SME in their growth. 
 
 The dimensions, questions and recommendations are the result of the work in the SME Cluster Growth Erasmus+ project.
 
@@ -22,7 +23,7 @@ The tool does not record the responses to the questionnaire, it only stores in m
 
 Both elements of shared state are handled in the Next.js `api` folder. 
 
-The tool does not use any form of database or server-side persistent storage beyond saving in files the above. 
+The tool does not use any form of database or server-side persistent storage beyond saving in files the above. This has the problem that it works in `dev` mode, since it autoreloads components using "fast refresh" when the files are updated. But it won't do it in normal production mode, that will requiere storing the above in some form of database and include some reload functionality. 
 
 ## Development
 
@@ -30,7 +31,7 @@ The OER has been developed using the [Next.js 12](https://nextjs.org/) framework
 
 ## Deploy on Vercel
 
-You can easily deploy the OER as is in Vercel by forking the Github repo to your Github account and associating your fork with your Vercel account. 
+You can easily deploy the OER as is in Vercel (or any other similar free service as Netlify) by forking the Github repo to your Github account and associating your fork with your Vercel account. However, since the free Vercel hosting does not provide storage, it will not record correctly the averages and countings of the responses. 
 
 ## Self hosting
 
@@ -48,6 +49,6 @@ npm run build
 
 And finally you can start the server with:
 ```
-npm run start
+npm run dev
 ```
 

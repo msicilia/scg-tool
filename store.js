@@ -96,7 +96,7 @@ export const useQuestionnaireStore = create(
         initializeRecommendations : () => {
               console.log("initialRecommendations")
               dimensions.forEach((d) =>{get().updateDimensionRecommendations(d.id)})
-              model.questionnaire.forEach((q) =>{get().updateQuestionRecommendations(q.id, get().questionnaire.filter((qs)=>qs.id===q.id)[0].value)})
+              model.questionnaire.forEach((q) =>{ get().updateQuestionRecommendations(q.id, get().questionnaire.filter((qs)=>qs.id===q.id)[0].value)})
         }
 
 }), 

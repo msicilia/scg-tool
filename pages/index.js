@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useWorldMapStore } from '../store.js'
 import countries from '../json/countries.json'
 
+
 export default function Home(props) {
 
   const {getCount, currentLoc, selectLocation} = 
